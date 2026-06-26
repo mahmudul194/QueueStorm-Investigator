@@ -48,13 +48,17 @@ def analyze_ticket_with_ai(ticket: TicketRequest) -> TicketResponse:
     if ticket.metadata:
         prompt += f"\nMetadata: {json.dumps(ticket.metadata)}\n"
 
+    schema_instructions = f"""
+    You MUST output valid JSON matching this schema:
+    {json.dumps(TicketResponse.model_json_schema(), indent=2)}
+    """
+    
     try:
         response = client.models.generate_content(
             model='gemini-2.5-flash',
-            contents=[SYSTEM_PROMPT, prompt],
+            contents=[SYSTEM_PROMPT, schema_instructions, prompt],
             config=types.GenerateContentConfig(
                 response_mime_type="application/json",
-                response_schema=TicketResponse,
                 temperature=0.0,
             ),
         )
