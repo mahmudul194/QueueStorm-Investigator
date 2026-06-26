@@ -64,7 +64,12 @@ def analyze_ticket_with_ai(ticket: TicketRequest) -> TicketResponse:
         )
         # Parse the response
         result_json = response.text
-        return TicketResponse.model_validate_json(result_json)
+        ticket_response = TicketResponse.model_validate_json(result_json)
+        
+        # Enforce the strict schema rule: ticket_id must match exactly
+        ticket_response.ticket_id = ticket.ticket_id
+        
+        return ticket_response
     except Exception as e:
         # Fallback or error handling
         print(f"Error during AI generation: {e}")
