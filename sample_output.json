@@ -1,0 +1,14 @@
+{
+  "ticket_id": "TKT-001",
+  "relevant_transaction_id": "TXN-9101",
+  "evidence_verdict": "consistent",
+  "case_type": "wrong_transfer",
+  "severity": "high",
+  "department": "dispute_resolution",
+  "agent_summary": "Customer reported sending 5000 BDT to an incorrect number (+8801719876543) instead of the intended one (+8801712345678) via transaction TXN-9101 on 2026-04-14 at 14:08:22Z. The customer is requesting assistance to recover the funds.",
+  "recommended_next_action": "Initiate a wrong transfer dispute process for TXN-9101. Attempt to contact the recipient of the transfer to request a return of funds. Inform the customer about the dispute resolution process and expected timelines.",
+  "customer_reply": "Dear customer, we understand your concern regarding the transfer of 5000 BDT to an incorrect number today. We have noted the details of your complaint and the transaction ID TXN-9101. Our team is now investigating this matter. We will do our best to assist you, and any eligible amount will be returned through official channels if recovery is possible. We will keep you updated on the progress of our investigation.",
+  "human_review_required": true,
+  "confidence": null,
+  "reason_codes": null
+}
